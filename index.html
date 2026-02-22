@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>WWII Cinematic Story Generator | StoryForge AI</title>
+<meta name="description" content="Generate cinematic WWII stories instantly with our AI-powered Story Generator. Experience history like never before.">
+<meta name="keywords" content="WWII, Story Generator, AI, Cinematic Stories, History, Writing Tool">
+<meta name="author" content="StoryForge AI">
+<meta name="robots" content="index, follow">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Special Elite', cursive;
+  background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)), url('header.png');
+  background-size:cover;
+  background-attachment:fixed;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:30px;
+}
+header img{
+  width:60px;
+  height:60px;
+  border-radius:10px;
+}
+h1{
+  font-family:'Cinzel', serif;
+  font-size:3rem;
+  letter-spacing:3px;
+  text-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+.subtitle{
+  opacity:0.7;
+  margin-bottom:40px;
+}
+.container{
+  max-width:800px;
+  margin:auto;
+  background:rgba(15,15,15,0.85);
+  padding:50px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(255,255,255,0.08);
+  backdrop-filter:blur(8px);
+}
+button{
+  padding:15px 35px;
+  font-size:1rem;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  background:#c2a15f;
+  color:#000;
+  font-weight:bold;
+  transition:0.4s;
+  box-shadow:0 0 20px rgba(194,161,95,0.5);
+}
+button:hover{
+  background:#fff;
+  box-shadow:0 0 30px #fff;
+  transform:scale(1.05);
+}
+#output{
+  margin-top:40px;
+  font-size:1.2rem;
+  line-height:1.8;
+  min-height:100px;
+  border-top:1px solid rgba(255,255,255,0.2);
+  padding-top:30px;
+}
+footer{
+  margin-top:60px;
+  font-size:0.8rem;
+  opacity:0.5;
+}
+@media(max-width:768px){
+  h1{font-size:2rem;}
+  .container{padding:30px;}
+  header img{width:50px;height:50px;}
+}
+</style>
+</head>
+
+<body>
+<header>
+<img src="logo.png" alt="StoryForge AI Logo">
+<h1>WWII Cinematic Story Generator</h1>
+</header>
+<h2 class="subtitle">Generate epic WWII stories in seconds with AI</h2>
+
+<div class="container">
+  <button onclick="generatePrompt()">Generate Story Prompt</button>
+  <div id="output"></div>
+</div>
+
+<footer>
+© 2026 StoryForge AI | Designed for History Enthusiasts
+</footer>
+
+<script>
+const prompts = [
+"A terrified 19-year-old paratrooper drops into Normandy before dawn, unsure if he will survive the night.",
+"A nurse in London during the Blitz writes her final letter while sirens scream overhead.",
+"A German soldier freezing in Stalingrad begins doubting the ideology he once believed in.",
+"A Jewish prisoner sees Allied tanks approaching the camp gates in April 1945.",
+"Two enemy soldiers share an unexpected silent moment during the Battle of the Bulge.",
+"A submarine crew battles fear in the icy Atlantic during a deadly convoy attack.",
+"A resistance fighter risks execution to deliver secret intelligence.",
+"A Japanese pilot reflects on family the night before a dangerous Pacific mission."
+];
+
+function typeWriter(text, element, speed=25){
+  let i = 0;
+  element.innerHTML = "";
+  function typing(){
+    if(i < text.length){
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+function generatePrompt(){
+  const randomIndex = Math.floor(Math.random() * prompts.length);
+  const output = document.getElementById("output");
+  typeWriter(prompts[randomIndex], output, 25);
+}
+</script>
+</body>
+</html>
